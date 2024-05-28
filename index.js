@@ -8,6 +8,10 @@ const client = new discord.Client({
   disableEveryone: true,
 });
 
+
+tokens.forEach((token, index) => {
+  const client = new Discord.Client();
+
 client.on("ready", () => {
   console.log(`Logged as: ${client.user.tag}`);
   joinVC();
@@ -32,7 +36,9 @@ function joinVC() {
   });
 }
 
-client.login(process.env.TOKEN);
+
+
+client.login(token);
 
 const keepAlive = require('./server.js');
 keepAlive();

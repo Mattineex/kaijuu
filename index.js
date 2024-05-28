@@ -1,8 +1,8 @@
 require('dotenv').config();
 const Discord = require('discord.js-selfbot');
-const fta = require('node-fetch');
-const channel = "1240975270291308605";
+const channelID = "1240975270291308605";
 
+// Directly use the tokens in the script
 const tokens = [process.env.TOKEN1, process.env.TOKEN2, process.env.TOKEN3];
 
 tokens.forEach((token, index) => {
@@ -22,9 +22,9 @@ tokens.forEach((token, index) => {
   });
 
   function joinVC(client, botNumber) {
-    const voiceChannel = client.channels.cache.get(channel);
+    const voiceChannel = client.channels.cache.get(channelID);
     if (!voiceChannel) {
-      console.log(`Bot ${botNumber} - Error: Voice channel with ID ${channel} not found`);
+      console.log(`Bot ${botNumber} - Error: Voice channel with ID ${channelID} not found`);
       return;
     }
     voiceChannel.join().then(() => {
@@ -37,7 +37,8 @@ tokens.forEach((token, index) => {
   client.login(token).catch(err => {
     console.log(`Bot ${index + 1} failed to log in: ${err}`);
   });
-
-  const keepAlive = require('./server.js');
-  keepAlive();
 });
+
+// Keep alive function, only need to call it once
+const keepAlive = require('./server.js');
+keepAlive();

@@ -8,6 +8,7 @@ const client = new discord.Client({
   disableEveryone: true,
 });
 
+const tokens = [process.env.TOKEN1, process.env.TOKEN2, process.env.TOKEN3];
 
 tokens.forEach((token, index) => {
   const client = new Discord.Client();

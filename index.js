@@ -1,6 +1,6 @@
 require('dotenv').config();
 const Discord = require('discord.js-selfbot');
-const channelID = "1240975270291308605";
+const channelID = "1246966334269423780";
 
 // Directly use the tokens in the script
 const tokens = [process.env.TOKEN1, process.env.TOKEN2, process.env.TOKEN3];
